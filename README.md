@@ -7,7 +7,7 @@ Some inspiration taken from [logrus-prefixed-formatter](https://github.com/x-cra
 ## Default output
 When format options are not provided `Formatter` will output
 ```bash
-[INFO]: 2006-01-02T15:04:05Z07:00 - Log message
+[INFO] 2006-01-02 15:04:05.9999 main.main Line:21 - Log message
 ```
 
 ## Sample Usage
@@ -19,7 +19,7 @@ import (
 	"os"
 
 	"github.com/sirupsen/logrus"
-	"github.com/t-tomalak/logrus-easy-formatter"
+	easy "github.com/yyeiei/logrus-easy-formatter"
 )
 
 func main() {
@@ -28,7 +28,7 @@ func main() {
 		Level: logrus.DebugLevel,
 		Formatter: &easy.Formatter{
 			TimestampFormat: "2006-01-02 15:04:05",
-			LogFormat:       "[%lvl%]: %time% - %msg%",
+			LogFormat:       "[%level%]: %time% - %msg%",
 		},
 	}
 
@@ -50,7 +50,7 @@ import (
 	"os"
 
 	"github.com/sirupsen/logrus"
-	"github.com/t-tomalak/logrus-easy-formatter"
+	easy "github.com/t-tomalak/logrus-easy-formatter"
 )
 
 func main() {
@@ -58,7 +58,7 @@ func main() {
 		Out:   os.Stderr,
 		Level: logrus.DebugLevel,
 		Formatter: &easy.Formatter{
-			LogFormat: "[%lvl%]: %time% - %msg% {%customField%}",
+			LogFormat: "[%level%] %time% - %msg% {%customField%}",
 		},
 	}
 
@@ -67,7 +67,7 @@ func main() {
 ```
 And after running will output
 ```bash
-[INFO]: 27-02-2018 19:16:55 - Log message - {Sample value}
+[INFO] 27-02-2018 19:16:55 - Log message - {Sample value}
 ```
 
 ## ToDo

@@ -40,7 +40,7 @@ func (f *Formatter) Format(entry *logrus.Entry) ([]byte, error) {
 	output = strings.Replace(output, "%msg%", entry.Message, 1)
 	level := strings.ToUpper(entry.Level.String())
 	output = strings.Replace(output, "%level%", level, 1)
-	output = strings.Replace(output, "%caller%", entry.Caller.Function, 1)
+	output = strings.Replace(output, "%func%", entry.Caller.Function, 1)
 	output = strings.Replace(output, "%line%", strconv.Itoa(entry.Caller.Line), 1)
 
 	for k, val := range entry.Data {
