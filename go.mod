@@ -1,5 +1,5 @@
-module github.com/t-tomalak/logrus-easy-formatter
+module logrus-easy-formatter
 
-go 1.12
+go 1.13
 
 require github.com/sirupsen/logrus v1.4.2
